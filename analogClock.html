@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<title>Analog Clock</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+	* {
+		box-sizing:border-box;
+	}
+
+	body {
+		background:#fff;
+		margin:0px;
+		padding:0px;
+	}
+
+	.contain {
+		width:255px;
+		height:255px;
+		border:5px solid #184870;
+		border-radius:255px;
+		-moz-border-radius:255px;
+		-webkit-border-radius:255px;
+		-o-border-radius:250px;
+		margin:50px auto;
+		position:relative;
+		overflow:hidden;
+		background-image:linear-gradient(90deg, #E8F0F0 ,
+		#ffffff);
+		-moz-background-image:linear-gradient(90deg, #E8F0F0, #ffffff);
+		-webkit-background-image:linear-gradient(90deg, #E8F0F0, #ffffff);
+		-o-background-image:linear-gradient(90deg, #E8F0F0, #ffffff);
+		box-shadow:0px 0px 5px #284858;
+		-moz-box-shadow:0px 0px 5px #284858;
+		-webkit-box-shadow:0px 0px 5px #284858;
+		-o-box-shadow:0px 0px 5px #284858;
+		padding:0px;
+	}
+
+	.contain .num {
+		display:inline-block;
+		position:absolute;
+		z-index:1;
+		font-size:22px;
+		font-weight:600;
+		color:#184870;
+		padding:0px;
+		background:none;
+		text-shadow:1px 1px 1px # B8D0D0 ;
+		-moz-text-shadow:1px 1px 1px #B8D0D0;
+		-webkit-text-shadow:1px 1px 1px #B8D0D0;
+		-o-text-shadow:1px 1px 1px #B8D0D0;
+	}
+	.contain #n12 {
+		margin:auto;
+		right:0px;
+		left:0px;
+		top:0px;
+		text-align:center;
+	}
+	.contain #n6 {
+		margin:auto;
+		right:0px;
+		left:0px;
+		bottom:0px;
+		text-align:center;
+	}
+
+	.contain #n3 {
+		margin:auto;
+		right:5px;
+		top:0px;
+		bottom:0px;
+		display:flex;
+		display:-webkit-flex;
+		align-items:center;
+	}
+	.contain #n9 {
+		margin:auto;
+		left:5px;
+		top:0px;
+		bottom:0px;
+		display:flex;
+		display:-webkit-flex;
+		align-items:center;
+	}
+	.contain #n1 {
+		right:calc(125px - 62.5px);
+		top:calc(125px - 108.25317547305px);
+	}
+
+	.contain #n2 {
+		top:calc(125px - 69.5px);
+		right:calc(125px - 101.25317547305px);
+	}
+	.contain #n4 {
+		bottom:calc(125px - 69.5px);
+		right:calc(125px - 101.25317547305px);
+	}
+
+	.contain #n5 {
+		right:calc(125px - 62.5px);
+		bottom:calc(125px - 108.25317547305px);
+	}
+
+	.contain #n7 {
+		left:calc(125px - 62.5px);
+		bottom:calc(125px - 108.25317547305px);
+	}
+
+	.contain #n8 {
+		bottom:calc(125px - 69.5px);
+		left:calc(125px - 101.25317547305px);
+	}
+
+	.contain #n11 {
+		left:calc(125px - 69.5px);
+		top:calc(125px - 101.25317547305px);
+	}
+
+	.contain #n10 {
+		top:calc(125px - 62.5px);
+		left:calc(125px - 108.25317547305px);
+	}
+
+	#cent {
+		position: absolute;
+		border:1px solid #fff;
+		top:0px;
+		bottom:0px;
+		left:0px;
+		right:0px;
+		margin:auto;
+		width:10px;
+		height:10px;
+		border-radius:10px;
+		-moz-border-radius:10px;
+		-webkit-border-radius:10px;
+		-o-border-radius:10px;
+		z-index:5;
+		background:#184870;
+	}
+
+	#sh {
+		height:90px;
+		width:1px;
+		background:red;
+		right:0px;
+		left:0px;
+		margin:auto;
+		bottom:122.5px;
+		position: absolute;
+		z-index:4;
+		transform-origin:50% 100%;
+		box-shadow:1px 1px 1px #B8D0D0;
+		-moz-box-shadow:1px 1px 1px #B8D0D0;
+		-webkit-box-shadow:1px 1px 1px #B8D0D0;
+		-o-box-shadow:1px 1px 1px #B8D0D0;
+	}
+
+	#mh {
+		height:75px;
+		width:3px;
+		background:#204050;
+		right:0px;
+		left:0px;
+		margin:auto;
+		bottom:122.5px;
+		position: absolute;
+		z-index:3;
+		transform-origin:50% 100%;
+		box-shadow:1px 1px 1px #B8D0D0;
+		-moz-box-shadow:1px 1px 1px #B8D0D0;
+		-webkit-box-shadow:1px 1px 1px #B8D0D0;
+		-o-box-shadow:1px 1px 1px #B8D0D0;
+	}
+
+	#hh {
+		height:55px;
+		width:5px;
+		background:#184870;
+		right:0px;
+		left:0px;
+		margin:auto;
+		bottom:122.5px;
+		position: absolute;
+		z-index:2;
+		transform-origin:50% 100%;
+		box-shadow:1px 1px 1px #B8D0D0;
+		-moz-box-shadow:1px 1px 1px #B8D0D0;
+		-webkit-box-shadow:1px 1px 1px #B8D0D0;
+		-o-box-shadow:1px 1px 1px #B8D0D0;
+	}
+
+	#label {
+		position: absolute;
+		z-index:0;
+		top:40px;
+		left:0px;
+		right:0px;
+		margin:auto;
+		text-align:center;
+		font-size:10px;
+		font-weight:600;
+		color:#A8B8C0;
+	}
+	</style>
+	<script type="text/javascript">
+	window.addEventListener("load", function (){
+		secs();
+		mins();
+	});
+	function secs(){
+		var full_date = new Date();
+		//for seconds
+		var current_seconds = full_date.getSeconds();
+		var rotation_angle_s = current_seconds * 6;
+		var rotate_value_s = "rotate(" + rotation_angle_s + "deg)";
+		document.getElementById("sh").style.transform = rotate_value_s;
+		//for minutes
+		var current_minute = full_date.getMinutes();
+		var rotation_angle_m = current_minute * 6;
+		var rotate_value_m = "rotate(" + rotation_angle_m + "deg)";
+		document.getElementById("mh").style.transform = rotate_value_m;
+		//for hours
+		var current_hour = full_date.getHours();
+		if(current_hour > 12){
+		var current_hour = current_hour;
+		}
+		else{
+		var current_hour = current_hour - 12;
+		}
+		var accurate_h_value = current_minute / 60 * 30;
+		var rotation_angle_h = (current_hour * 30) + accurate_h_value;
+		var rotate_value_h = "rotate(" + rotation_angle_h + "deg)";
+		document.getElementById("hh").style.transform = rotate_value_h;
+		setTimeout(secs,1000);
+	}
+	</script>
+  </head>
+  <body>
+	<div class="contain">
+	<!-- Numbers -->
+	<div class="num" id="n12">12</div>
+	<div class="num" id="n6">6</div>
+	<div class="num" id="n3">3</div>
+	<div class="num" id="n9">9</div>
+	<div class="num" id="n1">1</div>
+	<div class="num" id="n2">2</div>
+	<div class="num" id="n4">4</div>
+	<div class="num" id="n5">5</div>
+	<div class="num" id="n7">7</div>
+	<div class="num" id="n8">8</div>
+	<div class="num" id="n10">10</div>
+	<div class="num" id="n11">11</div>
+	<!-- center -->
+	<div id="cent"></div>
+	<!-- seconds hand -->
+	<div id="sh"></div>
+	<!-- minutes hand -->
+	<div id="mh"></div>
+	<!-- hour hand -->
+	<div id="hh"></div>
+	<!-- label -->
+	  <div id="label">Nsidibe Henry</div>
+	</div>
+	</body>
+</html>
